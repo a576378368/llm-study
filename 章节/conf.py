@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 project = '大模型学习教材'
-copyright = '2026, Claude Code'
-author = 'Claude Code'
+copyright = '2026, yangfeng'
+author = 'yangfeng'
 release = '1.0'
 version = '1.0'
 language = 'zh_CN'
