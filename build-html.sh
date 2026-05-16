@@ -68,11 +68,26 @@ generate_index() {
     cat > "${WORKSPACE_DIR}/index.rst" << 'EOF'
 .. toctree::
    :maxdepth: 2
-   :caption: 目录
+   :caption: 第一部分：基础理论篇
 
    第一章_基础理论篇/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 第二部分：模型架构篇
+
    第二章_模型架构篇/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 第三部分：应用实践篇
+
    第三章_应用实践篇/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 第四部分：前沿进展篇
+
    第四章_前沿进展篇/index
 
 # 大模型学习教材
@@ -92,14 +107,14 @@ EOF
 # 函数：生成各篇的 index.rst
 generate_chapter_indexes() {
     local chapters=(
-        "01基础理论篇:第一章_基础理论篇"
-        "02模型架构篇:第二章_模型架构篇"
-        "03应用实践篇:第三章_应用实践篇"
-        "04前沿进展篇:第四章_前沿进展篇"
+        "01基础理论篇:第一章_基础理论篇:第一部分：基础理论篇"
+        "02模型架构篇:第二章_模型架构篇:第二部分：模型架构篇"
+        "03应用实践篇:第三章_应用实践篇:第三部分：应用实践篇"
+        "04前沿进展篇:第四章_前沿进展篇:第四部分：前沿进展篇"
     )
 
     for chapter in "${chapters[@]}"; do
-        IFS=':' read -r dir_name title <<< "$chapter"
+        IFS='|' read -r dir_name title display_title <<< "$chapter"
         local md_dir="${SOURCE_DIR}/${dir_name}"
         local rst_dir="${WORKSPACE_DIR}/${title}"
         local index_file="${rst_dir}/index.rst"
@@ -108,7 +123,7 @@ generate_chapter_indexes() {
 
         # 生成篇的 index.rst（使用传统 Sphinx toctree 语法）
         cat > "${index_file}" << EOF
-# ${title#*_}
+# ${display_title}
 
 .. toctree::
    :maxdepth: 2

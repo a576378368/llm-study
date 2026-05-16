@@ -1,7 +1,7 @@
 # 第四部分：前沿进展篇
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    第一章_多模态大模型
    第二章_Agent与工具使用

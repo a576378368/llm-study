@@ -1,7 +1,7 @@
 # 第二部分：模型架构篇
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    第一章_Transformer架构详解
    第二章_预训练方法

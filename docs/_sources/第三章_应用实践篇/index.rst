@@ -1,7 +1,7 @@
 # 第三部分：应用实践篇
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    第一章_大模型部署
    第二章_模型优化
