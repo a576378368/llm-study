@@ -1,4 +1,4 @@
-# 第一部分：Transformer架构详解
+# 第一章：Transformer架构详解
 
 > Transformer是现代大模型的基础架构，本章深入讲解Transformer的各个方面。
 

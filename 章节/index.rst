@@ -1,10 +1,29 @@
+# 第一部分：基础理论篇
+
 .. toctree::
    :maxdepth: 2
-   :caption: 目录
 
    第一章_基础理论篇/index
+
+# 第二部分：模型架构篇
+
+.. toctree::
+   :maxdepth: 2
+
    第二章_模型架构篇/index
+
+# 第三部分：应用实践篇
+
+.. toctree::
+   :maxdepth: 2
+
    第三章_应用实践篇/index
+
+# 第四部分：前沿进展篇
+
+.. toctree::
+   :maxdepth: 2
+
    第四章_前沿进展篇/index
 
 # 大模型学习教材
