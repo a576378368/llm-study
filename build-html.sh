@@ -16,7 +16,7 @@ NC='\033[0m'
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_DIR="${PROJECT_DIR}/大模型教材"    # Markdown 源文件
 WORKSPACE_DIR="${PROJECT_DIR}/章节"         # Sphinx 工作目录
-BUILD_DIR="${PROJECT_DIR}/_build/html"
+BUILD_DIR="${PROJECT_DIR}/docs"
 VENV_DIR="${PROJECT_DIR}/venv"
 STATIC_DIR="${WORKSPACE_DIR}/_static"
 
@@ -122,10 +122,22 @@ EOF
 
         # 查找该篇的所有 markdown 文件并添加引用（按文件名排序）
         if [ -d "${md_dir}" ]; then
-            # 使用 ls 配合 sed 按数字排序（提取第X章的数字）
-            for md_file in $(ls "${md_dir}"/*.md 2>/dev/null | sed 's/.*\///' | sort -t '第' -k2 -n); do
-                echo "   ${md_file}" >> "${index_file}"
-            done
+            # 使用 Python 脚本排序（按文件名中的数字）
+            python3 -c "
+import os
+import re
+md_dir = '${md_dir}'
+md_files = []
+for f in os.listdir(md_dir):
+    if f.endswith('.md'):
+        match = re.search(r'第(\\d+)章', f)
+        if match:
+            num = int(match.group(1))
+            md_files.append((num, f))
+md_files.sort(key=lambda x: x[0])
+for num, f in md_files:
+    print(f'   {f}')
+" >> "${index_file}"
         fi
 
         print_success "已生成 ${title}/index.rst"
@@ -175,6 +187,7 @@ build_html() {
     print_success "HTML 文档构建完成！"
     echo ""
     print_info "访问地址: ${BUILD_DIR}/index.html"
+    print_info "GitHub Pages 地址: https://a576378368.github.io/llm-study/"
 }
 
 # 函数：清理构建文件
