@@ -29,6 +29,7 @@ jobs:
       - name: Build HTML
         run: |
           bash build-html.sh build
+        working-directory: ./
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
