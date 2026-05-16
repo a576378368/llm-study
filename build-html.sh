@@ -66,23 +66,18 @@ generate_index() {
     print_info "生成主索引文件..."
 
     cat > "${WORKSPACE_DIR}/index.rst" << 'EOF'
----
-title: 大模型学习教材
----
+.. toctree::
+   :maxdepth: 2
+   :caption: 目录
+
+   第一章_基础理论篇/index
+   第二章_模型架构篇/index
+   第三章_应用实践篇/index
+   第四章_前沿进展篇/index
 
 # 大模型学习教材
 
 本教材涵盖大模型的基础理论、模型架构、应用实践和前沿进展。
-
-```{toctree}
-:maxdepth: 2
-:caption: 目录
-
-01基础理论篇/index
-02模型架构篇/index
-03应用实践篇/index
-04前沿进展篇/index
-```
 
 ## 使用建议
 
@@ -111,9 +106,9 @@ generate_chapter_indexes() {
 
         mkdir -p "${rst_dir}"
 
-        # 生成篇的 index.rst
+        # 生成篇的 index.rst（使用传统 Sphinx toctree 语法）
         cat > "${index_file}" << EOF
-# ${dir_name}
+# ${title#*_}
 
 .. toctree::
    :maxdepth: 2
