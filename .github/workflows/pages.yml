@@ -28,7 +28,8 @@ jobs:
 
       - name: Build HTML
         run: |
-          bash build-html.sh build
+          ls -la
+          bash build-html.sh build || { echo "Build failed"; exit 1; }
         working-directory: ./
 
       - name: Upload artifact
