@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # 静态部署脚本 - 将构建好的 HTML 部署到 GitHub Pages
+# 注意：现在使用 GitHub Actions 自动部署，此脚本保留供本地测试使用
 
 set -e
 
@@ -29,18 +30,19 @@ clean_docs() {
 }
 
 # 函数：复制 HTML 到 docs
-deploy_html() {
-    print_info "复制 HTML 文件到 docs 目录..."
-    
-    if [ ! -d "${BUILD_DIR}" ]; then
-        print_warning "构建目录不存在，正在构建..."
-        cd "${PROJECT_DIR}"
-        bash build-html.sh build
-    fi
-    
-    cp -r "${BUILD_DIR}"/* "${DOCS_DIR}/"
-    print_success "HTML 文件已复制到 docs 目录"
-}
+# 注意：GitHub Actions 会自动构建 docs 目录，此函数仅用于本地测试
+# deploy_html() {
+#     print_info "复制 HTML 文件到 docs 目录..."
+#     
+#     if [ ! -d "${BUILD_DIR}" ]; then
+#         print_warning "构建目录不存在，正在构建..."
+#         cd "${PROJECT_DIR}"
+#         bash build-html.sh build
+#     fi
+#     
+#     cp -r "${BUILD_DIR}"/* "${DOCS_DIR}/"
+#     print_success "HTML 文件已复制到 docs 目录"
+# }
 
 # 函数：显示部署信息
 show_info() {
@@ -56,9 +58,13 @@ show_info() {
 }
 
 # 主函数
+# GitHub Pages 使用 GitHub Actions 自动部署
+# 本地测试时可运行: bash deploy.sh
 main() {
+    print_info "警告：现在使用 GitHub Actions 自动部署"
+    print_info "本地测试部署脚本：bash deploy.sh"
     clean_docs
-    deploy_html
+    # deploy_html  # GitHub Actions 自动处理
     show_info
 }
 

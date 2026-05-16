@@ -9,8 +9,8 @@ _build/
 *.pyo
 .cache/
 
-# docs 目录（部署后的内容）
-# GitHub Pages 需要 docs 目录，所以不忽略
+# docs 目录（部署后的内容）- 动态构建，不提交到仓库
+/docs/
 
 # 测试文件
 sort_test
