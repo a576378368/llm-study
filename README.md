@@ -1,5 +1,7 @@
 # 大模型学习教材 - HTML 构建工具
 
+[查看在线文档](https://a576378368.github.io/llm-study/)
+
 这是一套用于将 Markdown 格式的教材转换为 HTML 文档的自动化脚本工具。
 
 ## 功能特性
