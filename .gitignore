@@ -1,0 +1,31 @@
+# Python 虚拟环境
+venv/
+*.pyc
+__pycache__/
+
+# 构建文件
+_build/
+*.pyc
+*.pyo
+.cache/
+
+# docs 目录（部署后的内容）
+# GitHub Pages 需要 docs 目录，所以不忽略
+
+# 测试文件
+sort_test
+sort_test.c
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+._*
+
+# 日志
+*.log
+.clause-task.log
