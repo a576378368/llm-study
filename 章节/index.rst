@@ -1,5 +1,5 @@
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: 第一部分：基础理论篇
 
    第一章_基础理论篇/第一章_机器学习基础回顾
@@ -7,7 +7,7 @@
    第一章_基础理论篇/第三章_大模型基础理论
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: 第二部分：模型架构篇
 
    第二章_模型架构篇/第一章_Transformer架构详解
@@ -16,7 +16,7 @@
    第二章_模型架构篇/第四章_高级技术
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: 第三部分：应用实践篇
 
    第三章_应用实践篇/第一章_大模型部署
@@ -25,7 +25,7 @@
    第三章_应用实践篇/第四章_案例实战
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: 第四部分：前沿进展篇
 
    第四章_前沿进展篇/第一章_多模态大模型
